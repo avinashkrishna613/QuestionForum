@@ -1,0 +1,33 @@
+<!Doctype html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+
+    <a href="http://127.0.0.1:8000/users/ques/logout">logout</a>
+    <ul>
+        {% for e2 in questions %}
+        <li>
+            <h2>Question</h2>
+            {{e2.ques}}
+            <a href="http://127.0.0.1:8000/users/ques/answer/?value={{e2.pk}}">reply</a> {{e.pk}}
+        </li>
+        <h2>answer</h2>
+
+        {% for x, y in dictionary.items %} {% if x is e2.ques %} {%if y|length > 1 %} {% for ei in y%}
+        <li>{{ei}} by </li>
+
+        {% for key, value in madeby.items %} {% if key is e2.pk %} {% for k, v in value.items %} {% if k is ei %} {{v}} {% endif %} {% endfor %}{% endif %} {% endfor %} {% endfor %} {% else %}
+        <li>{{y.0}} by </li>
+        {% for key, value in madeby.items %} {% if key is e2.pk %} {% for keys, val in value.items %} {% if keys is y.0 %} {{val}} {% endif %} {% endfor %} {% endif %} {% endfor%} {% endif %} {% endif %} {% endfor %} {% endfor %}
+
+
+
+    </ul>
+</body>
+
+</html>

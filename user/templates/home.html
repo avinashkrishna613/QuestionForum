@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<body>
+    <h1>hi hello welcome {{request.user.username}}</h1>
+
+
+    <!-- <input type="text" placeholder="Search.." name="search" width="300" id="id4"> -->
+    <!-- <button type="submit" class="fa fa-search " onclick="myfunc()" value="val"></button> -->
+    <input type="search" id="id3"></input>
+    <input type="submit" id="id4"></input>
+
+    <input type="submit" value="logout" id="id1 "></input>
+    <a href="http://127.0.0.1:8000/users/ques/asked/?name={{request.user.username}}">asked</a></br>
+    <a href="http://127.0.0.1:8000/users/ques/wanna.ask/?valve={{request.user.username}}">want to ask a question?</a>
+</body>
+
+<script>
+    document.getElementById("id1 ").onclick = function() {
+        myFunction()
+    };
+
+
+
+    function myFunction() {
+        window.location = "http://127.0.0.1:8000/users/logout ";
+    }
+    document.getElementById("id4").onclick = function() {
+        console.log("Hello hi");
+        myfunc()
+    };
+
+    function myfunc() {
+
+        var d = document.getElementById("id3");
+        if (d) {
+            h = d.value;
+            location.href = "http://127.0.0.1:8000/users/ques/search/?value=" + h;
+        }
+
+    }
+</script>
+
+</html>

@@ -1,0 +1,36 @@
+<body>
+    {% block content %} {% for each in questions %}
+    <form method="POST">
+
+        {{request.session.member_id}}
+        <a href="http://127.0.0.1:8000/users/ques/val/{{each.pk}}" id=id1>{{each.ques}}</a></br>
+
+    </form>
+    {% endfor %}
+    <div class="pagination">
+        <span class="step-links">
+        {% if questions.has_previous %}
+            <a href="http://127.0.0.1:8000/users/ques/paginate/{{ questions.previous_page_number }}/">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ questions.number }} of {{ questions.paginator.num_pages }}.
+        </span> {% if questions.has_next %}
+        <a href="http://127.0.0.1:8000/users/ques/paginate/{{ questions.next_page_number }}/">next</a>
+        <a href="http://127.0.0.1:8000/users/ques/paginate/{{ questions.paginator.num_pages }}/">last </a> {% endif %}
+        </span>
+    </div>
+    {% endblock%}
+</body>
+<script>
+    // document.getElementById("id1").onclick = function() {
+    //     myfunc();
+    // }
+
+    // function myfunc() {
+    //     var r = "{{request.session.member_id}}"
+
+    //     if (r == '')
+    //         alert("please login")
+    // }
+</script>

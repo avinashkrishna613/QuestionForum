@@ -1,0 +1,7 @@
+{% block content %}
+<h2>Question</h2>
+{% for each in qobj %}
+<li>{{each.ques}}</li>
+{% for e, v in mapping.items %} {% if e.pk is each.pk %} {% for t in v %}
+<li>{{t.ans}}</li> by <b>{{t.by}}</b>
+<a href="http://127.0.0.1:8000/users/ques/answer/?value={{each.pk}}">reply</a> {% endfor %} {% endif %} {% endfor %} {% endfor %} {% endblock %}
